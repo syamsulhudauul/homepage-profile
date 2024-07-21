@@ -101,7 +101,7 @@ const Home = () => {
           <a
             className={styles.social}
             target="_blank"
-            href="https://www.instagram.com/syamsulhudauul/"
+            href="https://www.instagram.com/syamsulhuda.uul/"
           >
             <InstagramIcon />
           </a>
