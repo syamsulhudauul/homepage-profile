@@ -1,7 +1,7 @@
-// next.config.js
+// next.config.mjs
 const isProd = process.env.NODE_ENV === 'production';
 
-module.exports = {
+export default {
   assetPrefix: isProd ? '/my-next-app/' : '',
   basePath: isProd ? '/my-next-app' : '',
 };
