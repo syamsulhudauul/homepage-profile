@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Router from "next/router";
-import withGA from "next-ga";
+import { GA_TRACKING_ID } from '../lib/gtag';
 import {
   GithubIcon,
   InstagramIcon,
@@ -16,32 +16,47 @@ const Home = () => {
         <Head>
           <title>Freddy Jimenez</title>
           <link rel="icon" href="/favicon.ico" />
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_TRACKING_ID}', {
+                  page_path: window.location.pathname,
+                });
+              `,
+            }}
+          />
         </Head>
         <main className={styles.main}>
-          <h1 className={styles.name}>Hi! my name is Freddy</h1>
+          <h1 className={styles.name}>Hi! my name is Syamsul Huda</h1>
           <p>
             I'm a{" "}
             <strong className={`${styles.highlight} ${styles.job}`}>
               Software Engineer{" "}
             </strong>
-            passionate about frontend technologies.
+            passionate about backend technologies.
           </p>
           <p>
-            Currently helping to connect people through more meaningful
-            conversations at
+            Currently connect people with inspire creativity and enrich life through
             <a
               className={`${styles.highlight} ${styles.work}`}
               target="_blank"
-              href="https://www.typeform.com/"
+              href="https://www.bytedance.com/en/"
             >
-              Typeform
+              Bytedance
             </a>
           </p>
           <article className={styles.hobbies}>
             <p>I like </p>
             <ul className={styles.dynamicText}>
               <li className={styles.travel}>
-                <span>traveling</span>
+                <span>gaming</span>
               </li>
               <li className={styles.running}>
                 <span>running</span>
@@ -50,13 +65,13 @@ const Home = () => {
                 <span>creating cool stuff</span>
               </li>
               <li className={styles.beach}>
-                <span>going to the beach</span>
+                <span>dating with my wife</span>
               </li>
               <li className={styles.drums}>
-                <span>playing the drums</span>
+                <span>chat with people</span>
               </li>
               <li className={styles.videogames}>
-                <span>playing co-op videogames</span>
+                <span>playing football games</span>
               </li>
             </ul>
           </article>
@@ -65,28 +80,28 @@ const Home = () => {
           <a
             className={styles.social}
             target="_blank"
-            href="https://github.com/alfrejivi"
+            href="https://github.com/syamsulhudauul"
           >
             <GithubIcon />
           </a>
           <a
             className={styles.social}
             target="_blank"
-            href="https://twitter.com/alfrejivi"
+            href="https://twitter.com/syamsulhudauul"
           >
             <TwitterIcon />
           </a>
           <a
             className={styles.social}
             target="_blank"
-            href="https://www.linkedin.com/in/alfrejivi/"
+            href="https://www.linkedin.com/in/syamsulhudauul/"
           >
             <LinkedinIcon />
           </a>
           <a
             className={styles.social}
             target="_blank"
-            href="https://www.instagram.com/alfrejivi/"
+            href="https://www.instagram.com/syamsulhudauul/"
           >
             <InstagramIcon />
           </a>
@@ -96,4 +111,4 @@ const Home = () => {
   );
 };
 
-export default withGA(process.env.NEXT_PUBLIC_GA_ID, Router)(Home);
+export default Home;
