@@ -43,13 +43,13 @@ const Home = () => {
             passionate about backend technologies.
           </p>
           <p>
-            Currently connect people with inspire creativity and enrich life through
+            Inspire creativity and enrich life through
             <a
               className={`${styles.highlight} ${styles.work}`}
               target="_blank"
               href="https://www.bytedance.com/en/"
             >
-              Bytedance
+               Bytedance
             </a>
           </p>
           <article className={styles.hobbies}>
